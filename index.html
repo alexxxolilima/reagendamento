@@ -266,7 +266,7 @@
       return item.region === currentRegion;
     });
     if (!filtered.length) {
-      resultsDiv.innerHTML = `<div class="empty-msg">Nenhum diagnóstico (dos 4) encontrado para ${currentRegion}.</div>`;
+      resultsDiv.innerHTML = `<div class="empty-msg">Nenhuma O.S Ausente em ${currentRegion}.</div>`;
       return;
     }
 
@@ -313,9 +313,9 @@
       out += `REAGENDAMENTO ${reg}\n\n`;
       order.forEach(cat => {
         const items = groups[reg].filter(i => i.diag === cat);
-        if (!items.length) return; // skip empty category
+        if (!items.length) return;
         out += `${cat}:\n`;
-        items.forEach(it => { out += `- ${it.cliente} - ${it.assunto}\n`; });
+        items.forEach(it => { out += `${it.cliente} - ${it.assunto}\n`; });
         out += `\n`;
       });
       if (idx !== presentRegions.length - 1) out += `-------------------\n\n`;
@@ -359,4 +359,5 @@
 </script>
 </body>
 </html>
+
 
