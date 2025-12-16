@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="pt-BR">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="description" content="Reagendamento" />
+<meta name="author" content="Alex Lima, Gustavo Matos, Bianca Marques">
+
+<title>Reagendamento Ausentes - Filtro Estrito</title>
+
+<script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+
+ <link rel="stylesheet" href="style.css">
+<link rel="shortcut icon" href="img/OIP.jpg" type="image/png">
+
+</head>
+
+<body>
+
+  <div class="app-container">
+    <div class="header">
+      <img src="img/OIP.jpg" alt="OIP" onerror="this.style.display='none'">
+      <div class=""></div>
+      <h1>Filtro de Reagendamento</h1>
+    </div>
+
+    <div id="dropzone" class="dropzone">
+      <div class="icon-file">📄</div>
+      <div class="drop-text">Arraste e solte o arquivo Excel aqui ou clique para selecionar</div>
+      <input type="file" id="fileInput" accept=".xlsx, .xls" style="display:none">
+    </div>
+
+    <div class="filters">
+      <button class="pill-btn active" data-target="SBC">SBC</button>
+      <button class="pill-btn" data-target="GRAJAÚ">GRAJAÚ</button>
+      <button class="pill-btn" data-target="FRANCO">FRANCO</button>
+    </div>
+
+    <div class="actions-bar" id="actionsBar">
+      <button class="action-btn" id="btnCopyAll">Copiar Tudo </button>
+      <button class="action-btn btn-reset" id="btnReset">Limpar</button>
+    </div>
+
+    <div id="results" class="results-area">
+      <div class="empty-msg">Aguardando arquivo...</div>
+    </div>
+  </div>
+
+  <div class="footer-legend">
+    <div class="legend-row">
+      <div class="box-legend" style="background: #fff;"></div>
+      <span>Reagendamento / Ausente</span>
+    </div>
+    <div class="legend-row">
+      <div class="box-legend" style="background: var(--warning); box-shadow: var(--glow-warn);"></div>
+      <span>Endereço não localizado</span>
+    </div>
+  </div>
+
+  <script src="log.js" defer></script>
+  
+</body>
+
+</html>
