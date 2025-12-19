@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="pt-BR">
-
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -11,13 +10,12 @@
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="img/OIP.jpg?v=2" type="image/jpeg">
 </head>
-
 <body>
   <div class="app-container">
     <div class="header">
       <img src="img/OIP.jpg" alt="OIP" onerror="this.style.display='none'">
       <div class="" aria-hidden="true"></div>
-      <h1>Reagendamento</h1>
+      <h1>Filtro de Reagendamento</h1>
     </div>
 
     <div id="loader" class="loader" aria-live="polite" hidden>Processando arquivo...</div>
@@ -36,12 +34,26 @@
     </div>
 
     <div class="actions-bar" id="actionsBar" hidden>
-      <button class="action-btn" id="btnCopyAll">Copiar Tudo</button>
-      <button class="action-btn btn-reset" id="btnReset">Limpar</button>
+      <div class="copy-mode" role="toolbar" aria-label="Modo de cópia">
+        <label><input type="radio" name="copyMode" value="nome" checked /> Copiar Nome</label>
+        <label><input type="radio" name="copyMode" value="login" /> Copiar Login</label>
+      </div>
+      <div style="margin-left:auto; display:flex; gap:8px;">
+        <button class="action-btn" id="btnCopyAll">Copiar Tudo</button>
+        <button class="action-btn btn-reset" id="btnReset">Limpar</button>
+      </div>
     </div>
 
     <div id="results" class="results-area">
       <div class="empty-msg">Nenhum arquivo selecionado...</div>
+    </div>
+
+    <div id="osPanel" class="os-panel" hidden aria-live="polite">
+      <div class="os-panel-header">Clientes com O.S. em aberto (por região)</div>
+      <div id="osPanelContent" class="os-panel-content"></div>
+      <div style="margin-top:8px; text-align:right;">
+        <button class="action-btn" id="btnCopyOs">Copiar lista de O.S.</button>
+      </div>
     </div>
   </div>
 
@@ -58,8 +70,8 @@
 
   <script src="log.js" defer></script>
 </body>
-
 </html>
+
 
 
 
